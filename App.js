@@ -12,5 +12,11 @@ const parent = React.createElement("div", { id: "parent" }, [
   ]),
 ]);
 
+
+// **************** 
+
+const jsxheading = <h1 id="heading">this is react element created with jsx</h1>
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(parent);
+root.render(jsxheading);
