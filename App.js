@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+
+// Create react Element 
 const parent = React.createElement("div", { id: "parent" }, [
   React.createElement("div", { id: "child1" }, [
     React.createElement("h1", {}, "this is child 1 h1 tag"),
@@ -14,9 +16,18 @@ const parent = React.createElement("div", { id: "parent" }, [
 
 
 // **************** 
-
+// jsx 
 const jsxheading = <h1 id="heading">this is react element created with jsx</h1>
+
+const Title = () => <h1 id="heading">this is react element created with jsx</h1>
+
+const HeadingComponet = () => {
+  return <div className="parent">
+    <Title />             {/* component composition */}
+    <h1 id="heading">this is functional component</h1>
+  </div>
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(parent);
-root.render(jsxheading);
+root.render(<HeadingComponet />);
