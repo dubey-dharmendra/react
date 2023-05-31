@@ -24,6 +24,11 @@ const Title = () => <h1 id="heading">this is react element created with jsx</h1>
 const HeadingComponet = () => {
   return <div className="parent">
     <Title />             {/* component composition */}
+    {/* or */}
+    <Title></Title>
+    {/* or  */}
+    {Title()}
+
     <h1 id="heading">this is functional component</h1>
   </div>
 }
