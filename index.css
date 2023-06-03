@@ -1,3 +1,37 @@
-#heading {
-  color: red;
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+.logo {
+  width: 50px;
+  height: 50px;
+}
+.logo-img {
+  height: 100px;
+  width: 100px;
+}
+
+.nav-item > ul {
+  display: flex;
+}
+
+.nav-item > ul > li {
+  margin: 10px;
+  padding: 30px;
+  list-style-type: none;
+}
+.res-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.res-card {
+  margin: 5px;
+  width: 180px;
+  border: 2px solid black;
+}
+.res-logo {
+  height: 150px;
+  width: 100%;
 }
