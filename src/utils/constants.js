@@ -2,6 +2,8 @@ export const Logo_LINK = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9Gc
 
 export const REST_LOGO = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"
 
+export const swiggy_api_URL =
+ "https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.0088682&lng=76.9595363&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING&offset="
 
 export const resList = [
  {

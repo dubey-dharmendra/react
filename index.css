@@ -35,3 +35,21 @@
   height: 150px;
   width: 100%;
 }
+
+.top {
+  margin-top: 5px;
+  display: flex;
+}
+.search-input {
+  margin: 0px 5px;
+}
+
+.shimmer-conatiner {
+  display: flex;
+}
+.shimmer-card {
+  margin: 5px;
+  height: 280px;
+  width: 200px;
+  background-color: rgb(162, 165, 168);
+}
