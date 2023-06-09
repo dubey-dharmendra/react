@@ -53,3 +53,12 @@
   width: 200px;
   background-color: rgb(162, 165, 168);
 }
+
+.footer {
+  height: 50px;
+  background-color: chartreuse;
+}
+.footer > h3 {
+  padding: 13px;
+  text-align: center;
+}

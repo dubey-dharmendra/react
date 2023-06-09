@@ -43,7 +43,6 @@ const Body = () => {
     <div className="search-container">
      <input type="text" className="search-input" placeholder="search..." value={searchText} onChange={(e) => {
       setSearchText(e.target.value)
-
      }} />
 
      <button className="search-btn" onClick={() => {
