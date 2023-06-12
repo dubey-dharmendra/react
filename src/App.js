@@ -5,6 +5,8 @@ import Body from "./components/Body";
 import Footer from "./components/Footer"
 import About from "./components/About"
 import Contact from "./components/Contact";
+import Profile from "./components/Profile"
+import ProfileClass from "./components/ProfileClassComponent"
 import Error from "./components/Error"
 import RestaurantMenu from "./components/RestaurantMenu"
 
@@ -35,7 +37,13 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />
+        element: <About />,
+        children: [
+          {
+            path: "profile",
+            element: <Profile />,
+          }
+        ]
       },
       {
         path: "/contact",
