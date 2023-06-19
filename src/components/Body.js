@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard"
 import ShimmerUi from "../components/ShimmerUi"
 import { resList } from "../utils/constants"
 import { useState, useEffect } from "react"
+import useOnline from "../utils/useOnline"
 
 const searchData = (resto, searchText) => {
  const filterData = resto.filter((ele) => ele?.data?.name?.toLowerCase().includes(searchText.toLowerCase()))
@@ -26,6 +27,12 @@ const Body = () => {
  //  setRestList(json?.data?.cards[2]?.data?.data?.cards)
  // }
 
+
+ const isOnline = useOnline()
+
+ if (!isOnline) {
+  return <h1>offline, Please check your internet connection</h1>
+ }
  if (!resList) return null;
 
  if (filteredRestList.length == 0)

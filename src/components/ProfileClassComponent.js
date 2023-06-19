@@ -14,6 +14,24 @@ class ProfileClass extends React.Component {
 
  componentDidMount() {
   console.log("child ComponentDid Mount");
+  this.timer = setInterval(() => {
+   console.log('this is timer');
+  }, 1000)
+ }
+
+ componentDidUpdate(prePros, preState) {
+  console.log("called every sub-render/every re-render");
+  if (this.state.count != preState.count) {
+   // code 
+  }
+
+
+ }
+
+ componentWillUnmount() {
+  console.log("called once ,when destroy mounted component, it is called on we go on page to another page");
+
+  clearInterval(this.timer)
  }
 
  render() {

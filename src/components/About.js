@@ -17,7 +17,7 @@ class About extends Component {
    <div>
     <h1>About Us Page</h1>
     <Profile name="swagger" />
-    <ProfileClass name="Swagger" />
+    {/* <ProfileClass name="Swagger" /> */}
    </div>
 
   )
@@ -26,3 +26,6 @@ class About extends Component {
 }
 
 export default About
+
+
+
