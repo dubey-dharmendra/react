@@ -1,8 +1,9 @@
 import RestaurantCard from "./RestaurantCard"
 import ShimmerUi from "../components/ShimmerUi"
-import { resList } from "../utils/constants"
+import { swiggy_api_URL } from "../utils/constants"
 import { useState, useEffect } from "react"
 import useOnline from "../utils/useOnline"
+import { Link } from "react-router-dom"
 
 const searchData = (resto, searchText) => {
  const filterData = resto.filter((ele) => ele?.data?.name?.toLowerCase().includes(searchText.toLowerCase()))
@@ -11,21 +12,26 @@ const searchData = (resto, searchText) => {
 
 
 const Body = () => {
- const [restList, setRestList] = useState(resList)
- const [filteredRestList, setFilteredRestList] = useState(resList)
+ const [restList, setRestList] = useState([])
+ const [filteredRestList, setFilteredRestList] = useState([])
 
  const [searchText, setSearchText] = useState("")
 
- // useEffect(() => {
- //  fetchData()
- // }, [])
+ useEffect(() => {
+  getRestaurantByApi()
+ }, [])
 
- // const fetchData = async () => {
- //  const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5270362&lng=77.13593279999999&page_type=DESKTOP_WEB_LISTING")
- //  console.log(data);
- //  const json = data.json()
- //  setRestList(json?.data?.cards[2]?.data?.data?.cards)
- // }
+ const getRestaurantByApi = async () => {
+  try {
+   const data = await fetch(swiggy_api_URL)
+   const json = await data.json()
+   setRestList(json?.data?.cards[2]?.data?.data?.cards)
+   setFilteredRestList(json?.data?.cards[2]?.data?.data?.cards)
+  } catch (error) {
+   console.log(error);
+  }
+ }
+
 
 
  const isOnline = useOnline()
@@ -33,12 +39,11 @@ const Body = () => {
  if (!isOnline) {
   return <h1>offline, Please check your internet connection</h1>
  }
- if (!resList) return null;
+ if (!restList) return null;
 
- if (filteredRestList.length == 0)
-  return <h1>No Restaurant Founded</h1>
 
- return (restList.length == 0) ? <ShimmerUi /> : (
+
+ return (filteredRestList.length == 0) ? <ShimmerUi /> : (
   <div className="body">
    <div className="top">
     <button className="filter-btn"
@@ -59,9 +64,14 @@ const Body = () => {
      >search</button>
     </div>
    </div>
-   <div className="res-container">
+   <div className="flex flex-wrap">
     {
-     filteredRestList?.map((element) => <RestaurantCard key={element.data.id} {...element.data} />)
+     filteredRestList?.map((element) =>
+     (<Link
+      key={element.data.id} to={"/restaurant/" + element.data.id}>
+      <RestaurantCard resData={element} />
+     </Link>)
+     )
     }
    </div>
 

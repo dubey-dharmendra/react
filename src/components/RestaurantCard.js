@@ -1,15 +1,14 @@
 import { REST_LOGO } from "../utils/constants"
 
-const RestaurantCard = ({
- cloudinaryImageId,
- name,
- cuisines,
- avgRating }) => {
+const RestaurantCard = ({ resData }) => {
+
+ const { cloudinaryImageId, name, cuisines, avgRating } = resData?.data
  return (
-  <div className="res-card">
+  <div className=" h-60 w-[12rem] p-2 m-2 shadow-sm bg-cyan-300">
+
    <img className="res-logo" src={REST_LOGO + cloudinaryImageId}></img>
-   <h2>{name}</h2>
-   <h4>{cuisines}</h4>
+   <h2 className="font-bold">{name}</h2>
+   <h4>{cuisines.join(", ")}</h4>
    <h4>{avgRating} rating</h4>
   </div>
  )

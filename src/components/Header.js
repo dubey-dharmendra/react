@@ -4,17 +4,17 @@ import foodLogo from "../assets/Img/foodLogo.png"
 
 const Header = () => {
  return (
-  <div className="header">
+  <div className="flex  justify-between bg-cyan-700 text-zinc-950 text-lg">
    <div className="Logo">
-    <img className="logo-img" src={foodLogo}></img>
+    <img className="h-28" src={foodLogo}></img>
    </div>
-   <div className="nav-item">
-    <ul>
-     <li><Link to="/">Home </Link></li>
-     <li><Link to="/about">About </Link></li>
-     <li><Link to="/contact">Contact </Link></li>
-     <li><Link to="/cart">Cart </Link></li>
-     <li><Link to="/instamart">Instamart </Link></li>
+   <div className="nav-item ">
+    <ul className="flex py-10">
+     <li className="px-4"><Link to="/">Home </Link></li>
+     <li className="px-4"><Link to="/about">About </Link></li>
+     <li className="px-4"><Link to="/contact">Contact </Link></li>
+     <li className="px-4"><Link to="/cart">Cart </Link></li>
+     <li className="px-4"><Link to="/instamart">Instamart </Link></li>
     </ul>
    </div>
   </div >
