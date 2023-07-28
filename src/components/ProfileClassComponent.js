@@ -49,6 +49,7 @@ class ProfileClass extends React.Component {
    </div>
   )
  }
+
 }
 
 

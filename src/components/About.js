@@ -16,7 +16,6 @@ class About extends Component {
   return (
    <div>
     <h1>About Us Page</h1>
-    <Profile name="swagger" />
     {/* <ProfileClass name="Swagger" /> */}
    </div>
 

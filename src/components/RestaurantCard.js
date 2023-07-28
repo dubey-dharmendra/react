@@ -2,7 +2,7 @@ import { REST_LOGO } from "../utils/constants"
 
 const RestaurantCard = ({ resData }) => {
 
- const { cloudinaryImageId, name, cuisines, avgRating } = resData?.data
+ const { cloudinaryImageId, name, cuisines, avgRating } = resData?.info
  return (
   <div className=" h-60 w-[12rem] p-2 m-2 shadow-sm bg-cyan-300">
 

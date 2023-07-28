@@ -6,7 +6,7 @@ import useOnline from "../utils/useOnline"
 import { Link } from "react-router-dom"
 
 const searchData = (resto, searchText) => {
- const filterData = resto.filter((ele) => ele?.data?.name?.toLowerCase().includes(searchText.toLowerCase()))
+ const filterData = resto.filter((ele) => ele?.info?.name?.toLowerCase().includes(searchText.toLowerCase()))
  return filterData;
 }
 
@@ -25,8 +25,8 @@ const Body = () => {
   try {
    const data = await fetch(swiggy_api_URL)
    const json = await data.json()
-   setRestList(json?.data?.cards[2]?.data?.data?.cards)
-   setFilteredRestList(json?.data?.cards[2]?.data?.data?.cards)
+   setRestList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle.restaurants)
+   setFilteredRestList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle.restaurants)
   } catch (error) {
    console.log(error);
   }
@@ -41,23 +41,21 @@ const Body = () => {
  }
  if (!restList) return null;
 
-
-
- return (filteredRestList.length == 0) ? <ShimmerUi /> : (
+ return restList.length == 0 ? (<ShimmerUi />) : (
   <div className="body">
-   <div className="top">
-    <button className="filter-btn"
+   <div className="h-20 bg-cyan-600 p-1">
+    <button className=" bg-red-600"
      onClick={() => {
-      const filteredData = restList.filter((ele) => ele?.data?.avgRating > 4)
+      const filteredData = restList.filter((ele) => ele?.info?.avgRating > 4)
       setRestList(filteredData)
      }}>Top Restaurant</button>
 
-    <div className="search-container">
+    <div className="pt-2">
      <input type="text" className="search-input" placeholder="search..." value={searchText} onChange={(e) => {
       setSearchText(e.target.value)
      }} />
 
-     <button className="search-btn" onClick={() => {
+     <button className="bg-yellow-50 ml-1 p 2 h-6 w-14 hover:bg-lime-500" onClick={() => {
       const data = searchData(restList, searchText)
       setFilteredRestList(data)
      }}
@@ -68,7 +66,7 @@ const Body = () => {
     {
      filteredRestList?.map((element) =>
      (<Link
-      key={element.data.id} to={"/restaurant/" + element.data.id}>
+      key={element.info.id} to={"/restaurant/" + element.info.id}>
       <RestaurantCard resData={element} />
      </Link>)
      )

@@ -3,7 +3,7 @@ export const Logo_LINK = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9Gc
 export const REST_LOGO = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"
 
 export const swiggy_api_URL =
- "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5270362&lng=77.13593279999999&page_type=DESKTOP_WEB_LISTING"
+ "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.854092934925376&lng=80.99707793444395&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 
 export const Resto_Menu = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId="
 

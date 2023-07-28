@@ -33,32 +33,16 @@ const appRouter = createBrowserRouter([
     element: <AppLayout />,
     errorElement: <Error />,
     children: [
+      { path: "/", element: <Body /> },
       {
-        path: "/",
-        element: <Body />
+        path: "/about", element: <About />, children: [{    //nested routing
+          path: "profile",
+          element: <Profile name="swagger" />
+        }]
       },
-      {
-        path: "/about",
-        element: <About />,
-        children: [
-          {
-            path: "profile",
-            element: <Profile />,
-          }
-        ]
-      },
-      {
-        path: "/contact",
-        element: <Contact />
-      },
-      {
-        path: "/restaurant/:id",
-        element: <RestaurantMenu />
-      },
-      {
-        path: "/instamart",
-        element: <Suspense fallback={<Shimmer />}><Instamart /></Suspense>
-      }
+      { path: "/contact", element: <Contact /> },
+      { path: "/restaurant/:id", element: <RestaurantMenu /> },
+      { path: "/instamart", element: <Suspense fallback={<Shimmer />}><Instamart /></Suspense> }
     ]
   },
 
