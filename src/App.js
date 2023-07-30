@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -10,6 +10,8 @@ import ProfileClass from "./components/ProfileClassComponent"
 import Error from "./components/Error"
 import RestaurantMenu from "./components/RestaurantMenu"
 
+import UserContext from "./utils/UserContext"
+
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/ShimmerUi";
 
@@ -18,12 +20,18 @@ const Instamart = lazy(() => import("./components/Instamart"))
 
 
 const AppLayout = () => {
+  let [newUser, setNewUser] = useState({ name: "dharmendra", email: "dharmendra@tftus.com" });
+
+  const { user } = useContext(UserContext);
+
+
   return (
-    <div className="app">
+    <UserContext.Provider value={{ user: newUser, setNewUser: setNewUser }}>  {/*over Riding context data*/}
       <Header />
       <Outlet />
       <Footer />
-    </div >
+    </UserContext.Provider>
+
   )
 }
 
