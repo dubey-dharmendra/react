@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom"
 import foodLogo from "../assets/Img/foodLogo.png"
 import { useContext } from "react"
-import UserContext from "../utils/UserContext"
+import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+
 
 const Header = () => {
+
+ const cartItem = useSelector(store => store.cart.items)
+
+
  const { user, setNewUser } = useContext(UserContext); {/* setNewUser are the state from APP componet user work as context. for chaange the context value dynamically */ }
  return (
   <div className="flex  justify-between bg-cyan-700 text-zinc-950 text-lg">
@@ -16,7 +22,7 @@ const Header = () => {
      <li className="px-4"><Link to="/">Home </Link></li>
      <li className="px-4"><Link to="/about">About </Link></li>
      <li className="px-4"><Link to="/contact">Contact </Link></li>
-     <li className="px-4"><Link to="/cart">Cart </Link></li>
+     <li className="px-4"><Link to="/cart">Cart {cartItem.length}</Link></li>
      <li className="px-4"><Link to="/instamart">Instamart </Link></li>
     </ul>
    </div>

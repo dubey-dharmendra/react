@@ -25,6 +25,7 @@ const Body = () => {
   try {
    const data = await fetch(swiggy_api_URL)
    const json = await data.json()
+
    setRestList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle.restaurants)
    setFilteredRestList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle.restaurants)
   } catch (error) {
