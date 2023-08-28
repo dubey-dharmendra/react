@@ -51,19 +51,23 @@ const Body = () => {
       setRestList(filteredData)
      }}>Top Restaurant</button>
 
-    <div className="pt-2">
-     <input type="text" className="search-input" placeholder="search..." value={searchText} onChange={(e) => {
-      setSearchText(e.target.value)
-     }} />
+    <div className="pt-2" >
+     <input
+      type="text"
+      data-testid="searchInput"
+      className="search-input" placeholder="search..." value={searchText}
+      onChange={(e) => {
+       setSearchText(e.target.value)
+      }} />
 
-     <button className="bg-yellow-50 ml-1 p 2 h-6 w-14 hover:bg-lime-500" onClick={() => {
+     <button data-testid="myBtnID" className="bg-yellow-50 ml-1 p 2 h-6 w-14 hover:bg-lime-500" onClick={() => {
       const data = searchData(restList, searchText)
       setFilteredRestList(data)
      }}
      >search</button>
     </div>
    </div>
-   <div className="flex flex-wrap">
+   <div data-testid="restRes" className="flex flex-wrap">
     {
      filteredRestList?.map((element) =>
      (<Link

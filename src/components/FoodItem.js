@@ -10,7 +10,7 @@ const FoodItem = (foodMenu) => {
  console.log(foodMenu);
  const { imageId, name, category, description, price } = foodMenu
  return (
-  <div className=" h-72 w-[12rem] p-2 m-2 shadow-sm bg-cyan-300">
+  <div data-testid="inCartItem" className=" h-72 w-[12rem] p-2 m-2 shadow-sm bg-cyan-300">
 
    <img className="res-logo" src={REST_LOGO + imageId}></img>
    <h2 className="font-bold">{name}</h2>

@@ -12,14 +12,14 @@ const Cart = () => {
  }
 
  return (
-  <div>\
+  <div>
    <div className="flex justify-around">
     <h1 className="font-bold text-3xl">Carts Items</h1>
     <button className="bg-cyan-400 p-2 m-2 rounded-md" onClick={() => clearCartItem()}>Clear Cart</button>
 
    </div>
 
-   <div className="flex">
+   <div className="flex" >
     {cartItem.map((ele) => <FoodItem {...ele} />)}
    </div>
   </div>
